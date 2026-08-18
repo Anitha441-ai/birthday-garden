@@ -1358,7 +1358,7 @@ function PuzzleThree({ onComplete }) {
   const [error, setError] = useState(false);
   const [completed, setCompleted] = useState(false);
 
-  const correctAnswer = "memories";
+  const correctAnswer = "happiness";
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -1450,7 +1450,7 @@ function PuzzleThree({ onComplete }) {
                 delay: 0.3,
               }}
             >
-              You got it! ❤️
+              You got it! Be happy always ❤️
             </motion.h2>
 
             <motion.p
