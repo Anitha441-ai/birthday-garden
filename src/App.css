@@ -1,0 +1,3547 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap");
+
+:root {
+  font-family: "DM Sans", sans-serif;
+  color: #4f554b;
+  background: #f8f5ee;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/* ------------------------------
+   MAIN BACKGROUND
+-------------------------------- */
+
+.app {
+  position: relative;
+
+  min-height: 100vh;
+  width: 100%;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(255, 255, 255, 0.95) 0%,
+      rgba(255, 255, 255, 0) 35%
+    ),
+    linear-gradient(
+      145deg,
+      #fff8f3 0%,
+      #f8f5ed 45%,
+      #edf4ed 100%
+    );
+}
+
+/* ------------------------------
+   SOFT LIGHT
+-------------------------------- */
+
+.glow {
+  position: absolute;
+
+  border-radius: 50%;
+
+  filter: blur(60px);
+
+  pointer-events: none;
+}
+
+.glow-one {
+  width: 260px;
+  height: 260px;
+
+  top: -100px;
+  left: -80px;
+
+  background: rgba(255, 214, 220, 0.28);
+}
+
+.glow-two {
+  width: 300px;
+  height: 300px;
+
+  right: -120px;
+  bottom: -100px;
+
+  background: rgba(188, 220, 188, 0.3);
+}
+
+/* ------------------------------
+   WELCOME CARD
+-------------------------------- */
+
+.welcome-card {
+  position: relative;
+  z-index: 5;
+
+  width: min(90%, 560px);
+
+  min-height: 650px;
+
+  padding: 60px 35px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.75);
+
+  border-radius: 32px;
+
+  background: rgba(255, 255, 255, 0.42);
+
+  backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 30px 80px rgba(90, 100, 80, 0.08);
+}
+
+/* ------------------------------
+   FLOWER
+-------------------------------- */
+
+.flower {
+  width: 105px;
+  height: 105px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 28px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.72);
+
+  box-shadow:
+    0 15px 40px rgba(100, 100, 80, 0.09);
+
+  font-size: 58px;
+}
+
+/* ------------------------------
+   EYEBROW
+-------------------------------- */
+
+.eyebrow {
+  margin: 0 0 16px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  color: #9a9084;
+}
+
+/* ------------------------------
+   MAIN TITLE
+-------------------------------- */
+
+h1 {
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: clamp(38px, 8vw, 58px);
+
+  font-weight: 500;
+
+  line-height: 1.08;
+
+  letter-spacing: -1.2px;
+
+  color: #4d5549;
+}
+
+/* ------------------------------
+   DESCRIPTION
+-------------------------------- */
+
+.description {
+  margin: 25px 0 32px;
+
+  font-size: 16px;
+
+  line-height: 1.75;
+
+  color: #77776e;
+}
+
+/* ------------------------------
+   BUTTON
+-------------------------------- */
+
+.start-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  min-width: 180px;
+
+  padding: 16px 28px;
+
+  border: none;
+
+  border-radius: 999px;
+
+  background: #8da58b;
+
+  color: white;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  letter-spacing: 1.4px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 12px 30px rgba(103, 130, 100, 0.22);
+
+  transition:
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.start-button:hover {
+  background: #7d997b;
+
+  box-shadow:
+    0 16px 35px rgba(103, 130, 100, 0.28);
+}
+
+.start-button span {
+  font-size: 15px;
+}
+
+/* ------------------------------
+   SMALL NOTE
+-------------------------------- */
+
+.tiny-note {
+  margin: 24px 0 0;
+
+  font-size: 12px;
+
+  color: #aaa69d;
+
+  font-style: italic;
+}
+
+/* ------------------------------
+   FALLING PETALS
+-------------------------------- */
+
+.petals {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 2;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+.petal {
+  position: absolute;
+
+  top: -40px;
+
+  color: #dca9ae;
+
+  opacity: 0.25;
+
+  animation-name: fall;
+
+  animation-timing-function: linear;
+
+  animation-iteration-count: infinite;
+}
+
+@keyframes fall {
+  0% {
+    transform:
+      translate3d(0, -40px, 0)
+      rotate(0deg);
+  }
+
+  25% {
+    transform:
+      translate3d(25px, 25vh, 0)
+      rotate(70deg);
+  }
+
+  50% {
+    transform:
+      translate3d(-20px, 50vh, 0)
+      rotate(150deg);
+  }
+
+  75% {
+    transform:
+      translate3d(30px, 75vh, 0)
+      rotate(240deg);
+  }
+
+  100% {
+    transform:
+      translate3d(-10px, 110vh, 0)
+      rotate(360deg);
+  }
+}
+
+/* ------------------------------
+   BOTTOM DECORATION
+-------------------------------- */
+
+.bottom-decoration {
+  position: absolute;
+
+  bottom: 20px;
+
+  z-index: 4;
+
+  font-size: 20px;
+
+  opacity: 0.5;
+
+  letter-spacing: 8px;
+}
+
+/* ------------------------------
+   MOBILE
+-------------------------------- */
+
+@media (max-width: 600px) {
+  .welcome-card {
+    width: 92%;
+
+    min-height: 100vh;
+
+    padding: 45px 22px;
+
+    border: none;
+
+    border-radius: 0;
+
+    background: rgba(255, 255, 255, 0.25);
+
+    box-shadow: none;
+  }
+
+  .flower {
+    width: 90px;
+    height: 90px;
+
+    font-size: 50px;
+  }
+
+  h1 {
+    font-size: 39px;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  .bottom-decoration {
+    bottom: 12px;
+  }
+}
+
+/* ------------------------------
+   REDUCE MOTION FOR ACCESSIBILITY
+-------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .petal {
+    animation: none;
+  }
+}
+
+/* ==============================
+   LEVEL 1
+================================ */
+
+.unlock-card {
+  overflow: hidden;
+}
+
+.lock-icon {
+  width: 100px;
+  height: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 24px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.72);
+
+  box-shadow:
+    0 15px 40px rgba(100, 100, 80, 0.08);
+
+  font-size: 48px;
+}
+
+.unlock-instruction {
+  margin: -5px 0 22px;
+
+  font-size: 14px;
+
+  line-height: 1.7;
+
+  color: #929087;
+}
+
+.unlock-form {
+  width: min(100%, 340px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.unlock-form input {
+  width: 100%;
+
+  margin-bottom: 10px;
+
+  padding: 17px 20px;
+
+  border: 1px solid #dedbd3;
+
+  border-radius: 999px;
+
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.8);
+
+  color: #55594f;
+
+  text-align: center;
+
+  font-family: "DM Sans", sans-serif;
+
+  font-size: 16px;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.unlock-form input::placeholder {
+  color: #aaa79f;
+}
+
+.unlock-form input:focus {
+  border-color: #9aac96;
+
+  box-shadow:
+    0 0 0 4px rgba(141, 165, 139, 0.12);
+}
+
+.error-message {
+  margin: 4px 0 14px;
+
+  font-size: 13px;
+
+  color: #b57d83;
+}
+
+.shake {
+  animation: shake-card 0.45s ease;
+}
+
+@keyframes shake-card {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-8px);
+  }
+
+  40% {
+    transform: translateX(8px);
+  }
+
+  60% {
+    transform: translateX(-5px);
+  }
+
+  80% {
+    transform: translateX(5px);
+  }
+}
+
+/* ==============================
+   UNLOCK CELEBRATION
+================================ */
+
+.unlock-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 20;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.96),
+      rgba(248, 245, 237, 0.97)
+    );
+}
+
+.unlock-heart {
+  font-size: 70px;
+
+  margin-bottom: 20px;
+}
+
+.unlock-overlay p {
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 28px;
+
+  color: #596150;
+}
+
+/* ==============================
+   SPARKLES
+================================ */
+
+.sparkles {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 3;
+
+  pointer-events: none;
+}
+
+.sparkle {
+  position: absolute;
+
+  font-size: 18px;
+
+  color: #d5ad70;
+}
+
+/* ==============================
+   PUZZLE PLACEHOLDER
+================================ */
+
+.coming-soon {
+  width: min(100%, 320px);
+
+  padding: 22px;
+
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.62);
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+  box-shadow:
+    0 12px 30px rgba(90, 100, 80, 0.06);
+}
+
+.coming-soon span {
+  display: block;
+
+  font-size: 38px;
+
+  margin-bottom: 10px;
+}
+
+.coming-soon p {
+  margin: 0;
+
+  font-size: 14px;
+
+  color: #89877f;
+}
+/* ==============================
+   PUZZLE 1
+================================ */
+
+.puzzle-card {
+  position: relative;
+}
+
+.puzzle-number {
+  position: absolute;
+
+  top: 25px;
+  right: 30px;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 15px;
+
+  color: #aaa79d;
+
+  letter-spacing: 2px;
+}
+
+.puzzle-title {
+  max-width: 480px;
+
+  font-size: clamp(34px, 6vw, 48px);
+
+  line-height: 1.12;
+}
+
+.puzzle-description {
+  margin-top: 18px;
+  margin-bottom: 22px;
+}
+
+.memory-options {
+  width: min(100%, 430px);
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  margin-bottom: 20px;
+}
+
+.memory-option {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 14px 16px;
+
+  border: 1px solid rgba(210, 211, 201, 0.8);
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.62);
+
+  color: #555a51;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  font-family: "DM Sans", sans-serif;
+
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.memory-option:hover {
+  border-color: #b5c4b0;
+
+  background: rgba(255, 255, 255, 0.82);
+}
+
+.memory-option.selected {
+  border-color: #8da58b;
+
+  background: rgba(231, 239, 228, 0.8);
+
+  box-shadow:
+    0 8px 22px rgba(100, 120, 95, 0.08);
+}
+
+.memory-letter {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #f2eee5;
+
+  color: #77796f;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 18px;
+}
+
+.memory-option.selected .memory-letter {
+  background: #8da58b;
+
+  color: white;
+}
+
+.memory-content {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.memory-content strong {
+  font-size: 14px;
+
+  font-weight: 600;
+}
+
+.memory-content small {
+  font-size: 11px;
+
+  line-height: 1.45;
+
+  color: #99968d;
+}
+
+.memory-check {
+  width: 24px;
+
+  font-size: 20px;
+
+  color: #b7b5ad;
+}
+
+.memory-option.selected .memory-check {
+  color: #71866d;
+}
+
+.puzzle-button {
+  margin-top: 2px;
+}
+
+.puzzle-button.disabled {
+  opacity: 0.45;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+.puzzle-feedback {
+  width: min(100%, 400px);
+
+  margin-bottom: 14px;
+
+  padding: 10px 14px;
+
+  border-radius: 14px;
+
+  background: rgba(255, 248, 235, 0.8);
+
+  color: #8d8171;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+.puzzle-feedback span {
+  margin-right: 5px;
+}
+
+.puzzle-feedback small {
+  color: #a39b8e;
+}
+
+/* ==============================
+   PUZZLE SUCCESS
+================================ */
+
+.puzzle-success {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 30;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  text-align: center;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.97),
+      rgba(247, 245, 237, 0.98)
+    );
+}
+
+.success-flower {
+  font-size: 70px;
+
+  margin-bottom: 15px;
+}
+
+.puzzle-success h2 {
+  margin: 0;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 32px;
+
+  font-weight: 500;
+
+  color: #56604f;
+}
+
+.puzzle-success p {
+  margin-top: 10px;
+
+  font-size: 13px;
+
+  color: #96938a;
+}
+
+@media (max-width: 600px) {
+  .puzzle-number {
+    top: 20px;
+    right: 20px;
+  }
+
+  .memory-option {
+    padding: 12px;
+  }
+
+  .memory-letter {
+    width: 36px;
+    height: 36px;
+  }
+}
+/* =====================================================
+   PUZZLE 2 — CRICKET GROUND
+===================================================== */
+
+.puzzle-two-card {
+  max-width: 620px;
+  position: relative;
+}
+
+
+/* =====================================================
+   CRICKET SCENE
+===================================================== */
+
+.cricket-scene {
+  position: relative;
+
+  width: min(100%, 500px);
+
+  height: 310px;
+
+  margin: 8px auto 15px;
+
+  overflow: hidden;
+
+  border-radius: 26px;
+
+  border: 1px solid rgba(
+    255,
+    255,
+    255,
+    0.9
+  );
+
+  background:
+    linear-gradient(
+      180deg,
+      #dceee8 0%,
+      #eaf3e4 45%,
+      #c0d9aa 46%,
+      #8eb275 100%
+    );
+
+  box-shadow:
+    0 16px 38px
+    rgba(
+      80,
+      105,
+      70,
+      0.12
+    );
+
+  cursor: crosshair;
+}
+
+
+/* =====================================================
+   SKY
+===================================================== */
+
+.cricket-sun {
+  position: absolute;
+
+  top: 15px;
+  right: 30px;
+
+  z-index: 2;
+
+  font-size: 35px;
+
+  opacity: 0.75;
+}
+
+.cricket-cloud {
+  position: absolute;
+
+  z-index: 2;
+
+  font-size: 35px;
+
+  opacity: 0.55;
+}
+
+.cricket-cloud-one {
+  top: 30px;
+  left: 45px;
+}
+
+.cricket-cloud-two {
+  top: 65px;
+  left: 230px;
+
+  font-size: 28px;
+}
+
+
+/* =====================================================
+   TREES
+===================================================== */
+
+.cricket-tree {
+  position: absolute;
+
+  z-index: 4;
+
+  font-size: 60px;
+
+  opacity: 0.8;
+
+  filter:
+    saturate(0.75);
+}
+
+.cricket-tree-left {
+  left: 15px;
+  top: 75px;
+}
+
+.cricket-tree-right {
+  right: 12px;
+  top: 68px;
+}
+
+
+/* =====================================================
+   FIELD
+===================================================== */
+
+.cricket-field {
+  position: absolute;
+
+  left: -40px;
+  bottom: -115px;
+
+  width: 580px;
+  height: 350px;
+
+  border-radius: 50%;
+
+  z-index: 3;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      #aacb8d 0%,
+      #91b978 55%,
+      #7da563 100%
+    );
+}
+
+
+/* =====================================================
+   BOUNDARY
+===================================================== */
+
+.cricket-boundary {
+  position: absolute;
+
+  left: 55px;
+  top: 38px;
+
+  width: 470px;
+  height: 270px;
+
+  border:
+    2px dashed
+    rgba(
+      255,
+      255,
+      255,
+      0.35
+    );
+
+  border-radius: 50%;
+}
+
+
+/* =====================================================
+   PITCH
+===================================================== */
+
+.cricket-pitch {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 82px;
+  height: 190px;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  border-radius: 5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #d2bd91,
+      #ead8ad,
+      #d0ba8e
+    );
+
+  box-shadow:
+    inset 0 0 14px
+    rgba(
+      100,
+      80,
+      40,
+      0.08
+    );
+}
+
+
+/* =====================================================
+   CREASE
+===================================================== */
+
+.pitch-crease {
+  position: absolute;
+
+  left: 22px;
+
+  width: 38px;
+
+  height: 3px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.75
+    );
+}
+
+.pitch-crease-top {
+  top: 27px;
+}
+
+.pitch-crease-bottom {
+  bottom: 27px;
+}
+
+
+/* =====================================================
+   STUMPS
+===================================================== */
+
+.decorative-stumps {
+  position: absolute;
+
+  bottom: 15px;
+  left: 28px;
+
+  display: flex;
+
+  gap: 5px;
+
+  opacity: 0.5;
+}
+
+.decorative-stumps span {
+  width: 4px;
+  height: 26px;
+
+  border-radius: 2px;
+
+  background: #f5eee0;
+}
+
+
+/* =====================================================
+   GRASS
+===================================================== */
+
+.field-grass {
+  position: absolute;
+
+  z-index: 10;
+
+  font-size: 22px;
+
+  opacity: 0.75;
+}
+
+.field-grass-one {
+  left: 8%;
+  bottom: 45px;
+}
+
+.field-grass-two {
+  right: 15%;
+  bottom: 40px;
+}
+
+.field-grass-three {
+  right: 40%;
+  bottom: 22px;
+}
+
+
+/* =====================================================
+   DECORATIVE BENCH
+===================================================== */
+
+.cricket-bench {
+  position: absolute;
+
+  z-index: 12;
+
+  right: 13%;
+
+  bottom: 26%;
+
+  width: 55px;
+  height: 8px;
+
+  border-radius: 5px;
+
+  background:
+    rgba(
+      116,
+      88,
+      61,
+      0.45
+    );
+
+  transform:
+    rotate(-3deg);
+}
+
+.cricket-bench::before,
+.cricket-bench::after {
+  content: "";
+
+  position: absolute;
+
+  top: 5px;
+
+  width: 4px;
+  height: 18px;
+
+  background:
+    rgba(
+      116,
+      88,
+      61,
+      0.4
+    );
+}
+
+.cricket-bench::before {
+  left: 7px;
+}
+
+.cricket-bench::after {
+  right: 7px;
+}
+
+
+/* =====================================================
+   BOUNDARY ROPE DETAIL
+===================================================== */
+
+.cricket-rope {
+  position: absolute;
+
+  z-index: 11;
+
+  right: 18%;
+
+  bottom: 12%;
+
+  font-size: 8px;
+
+  letter-spacing: 4px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.32
+    );
+
+  transform:
+    rotate(-8deg);
+}
+
+
+/* =====================================================
+   TINY FIELD DETAILS
+===================================================== */
+
+.small-cricket-mark {
+  position: absolute;
+
+  z-index: 11;
+
+  font-size: 7px;
+
+  opacity: 0.25;
+}
+
+.cricket-mark-one {
+  left: 31%;
+  bottom: 18%;
+}
+
+.cricket-mark-two {
+  right: 31%;
+  bottom: 27%;
+}
+
+
+/* =====================================================
+   INVISIBLE HOTSPOTS
+===================================================== */
+
+.cricket-hotspot {
+  position: absolute;
+
+  z-index: 40;
+
+  padding: 0;
+
+  margin: 0;
+
+  border: none;
+
+  background:
+    transparent;
+
+  box-shadow:
+    none;
+
+  outline: none;
+
+  cursor: pointer;
+
+  appearance: none;
+}
+
+
+/*
+   IMPORTANT:
+
+   No visible hover effect.
+
+   The user should not know
+   where the objects are.
+*/
+
+.cricket-hotspot:hover {
+  background:
+    transparent;
+
+  box-shadow:
+    none;
+
+  transform:
+    none;
+}
+
+
+/* =====================================================
+   FOUND OBJECT
+===================================================== */
+
+.cricket-hotspot-found {
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.06
+    );
+
+  border-radius: 50%;
+}
+
+
+/* =====================================================
+   FOUND MARKER
+===================================================== */
+
+.found-marker {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 24px;
+  height: 24px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  transform:
+    translate(
+      -50%,
+      -50%
+    );
+
+  border-radius: 50%;
+
+  background:
+    #8da58b;
+
+  color: white;
+
+  font-size: 12px;
+
+  font-weight: bold;
+
+  box-shadow:
+    0 4px 12px
+    rgba(
+      50,
+      70,
+      40,
+      0.18
+    );
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.hidden-progress {
+  display: flex;
+
+  justify-content: center;
+
+  gap: 8px;
+
+  margin:
+    2px 0 5px;
+}
+
+.progress-item {
+  width: 27px;
+  height: 27px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      220,
+      220,
+      210,
+      0.55
+    );
+
+  color:
+    #aaa79d;
+
+  font-size: 12px;
+
+  transition:
+    background 0.3s ease,
+    transform 0.3s ease;
+}
+
+.progress-found {
+  background:
+    #8da58b;
+
+  color: white;
+}
+
+
+/* =====================================================
+   HINT
+===================================================== */
+
+.cricket-hint {
+  margin: 5px 0;
+
+  font-size: 12px;
+
+  color:
+    #9b8374;
+}
+
+
+/* =====================================================
+   COMPLETION OVERLAY
+===================================================== */
+
+.cricket-complete-overlay {
+  position: absolute;
+
+  z-index: 100;
+
+  inset: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  border-radius: 20px;
+
+  background:
+    rgba(
+      250,
+      248,
+      239,
+      0.96
+    );
+
+  backdrop-filter:
+    blur(8px);
+}
+
+.cricket-complete-icon {
+  font-size: 45px;
+
+  margin-bottom: 10px;
+}
+
+.cricket-complete-overlay h2 {
+  margin:
+    0 0 8px;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 24px;
+
+  color:
+    #5d6659;
+}
+
+.cricket-complete-overlay p {
+  margin: 0;
+
+  font-size: 13px;
+
+  line-height: 1.6;
+
+  color:
+    #8c8278;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .cricket-scene {
+    height: 280px;
+  }
+
+  .cricket-tree-left {
+    left: 5px;
+  }
+
+  .cricket-tree-right {
+    right: 5px;
+  }
+
+  .cricket-field {
+    left: -70px;
+  }
+
+  .cricket-sun {
+    right: 20px;
+  }
+
+  .cricket-cloud-one {
+    left: 20px;
+  }
+
+  .cricket-cloud-two {
+    left: 180px;
+  }
+
+}
+/* =====================================================
+   PUZZLE 2 — INTERACTIVE OBJECTS
+===================================================== */
+
+
+/* =====================================================
+   TREE HIDING BAT
+===================================================== */
+
+.puzzle-tree {
+  position: absolute;
+
+  left: 5%;
+  top: 30%;
+
+  z-index: 45;
+
+  width: 90px;
+  height: 110px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  appearance: none;
+}
+
+.tree-crown {
+  display: block;
+
+  font-size: 78px;
+
+  filter:
+    drop-shadow(
+      0 5px 5px
+      rgba(50, 70, 40, 0.15)
+    );
+}
+
+
+/* =====================================================
+   BAT BEHIND TREE
+===================================================== */
+
+.hidden-bat {
+  position: absolute;
+
+  left: 7%;
+  top: 38%;
+
+  z-index: 25;
+
+  width: 60px;
+  height: 110px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  transform:
+    rotate(24deg);
+
+  appearance: none;
+}
+
+
+/* BAT HANDLE */
+
+.hidden-bat .bat-handle {
+  position: absolute;
+
+  left: 26px;
+  top: 0;
+
+  width: 9px;
+  height: 37px;
+
+  border-radius: 5px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #75543b,
+      #a37a51,
+      #69482f
+    );
+}
+
+
+/* BAT BLADE */
+
+.hidden-bat .bat-blade {
+  position: absolute;
+
+  left: 10px;
+  top: 31px;
+
+  width: 40px;
+  height: 72px;
+
+  border-radius:
+    5px 5px 9px 9px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #b78d55,
+      #e0c28b,
+      #b38851
+    );
+
+  box-shadow:
+    inset 0 0 7px
+    rgba(80, 55, 30, 0.18);
+}
+
+
+/* =====================================================
+   PLAYER
+===================================================== */
+
+.cricket-player {
+  position: absolute;
+
+  z-index: 35;
+
+  right: 29%;
+
+  bottom: 23%;
+
+  width: 75px;
+  height: 100px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  appearance: none;
+
+  filter:
+    drop-shadow(
+      0 4px 4px
+      rgba(50, 60, 40, 0.12)
+    );
+}
+
+
+/* PLAYER HEAD */
+
+.player-head {
+  position: absolute;
+
+  left: 24px;
+  top: 0;
+
+  font-size: 27px;
+}
+
+
+/* PLAYER BODY */
+
+.player-body {
+  position: absolute;
+
+  left: 17px;
+  top: 25px;
+
+  font-size: 32px;
+}
+
+
+/* PLAYER LEGS */
+
+.player-legs {
+  position: absolute;
+
+  left: 19px;
+  top: 52px;
+
+  font-size: 32px;
+}
+
+
+/* =====================================================
+   BALL SUBTLY IN PLAYER HAND
+===================================================== */
+
+.player-hidden-ball {
+  position: absolute;
+
+  right: 3px;
+  top: 25px;
+
+  font-size: 13px;
+
+  opacity: 0.65;
+
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
+}
+
+
+/* =====================================================
+   REVEALED BALL
+===================================================== */
+
+.revealed-cricket-ball {
+  position: absolute;
+
+  z-index: 55;
+
+  right: 24%;
+
+  bottom: 33%;
+
+  width: 50px;
+  height: 50px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  appearance: none;
+}
+
+
+/* BALL */
+
+.revealed-cricket-ball .ball-shape {
+  position: absolute;
+
+  left: 10px;
+  top: 10px;
+
+  width: 27px;
+  height: 27px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 32% 28%,
+      #f46a6e,
+      #cf4047 65%,
+      #a72d35
+    );
+
+  box-shadow:
+    1px 3px 6px
+    rgba(
+      60,
+      40,
+      30,
+      0.25
+    );
+}
+
+
+/* SEAM */
+
+.revealed-cricket-ball
+.ball-shape::after {
+  content: "";
+
+  position: absolute;
+
+  left: 12px;
+  top: 2px;
+
+  width: 2px;
+  height: 23px;
+
+  border-left:
+    1px dashed
+    rgba(
+      255,
+      240,
+      240,
+      0.85
+    );
+
+  transform:
+    rotate(25deg);
+}
+
+
+/* =====================================================
+   TROPHY
+===================================================== */
+
+.hidden-trophy {
+  position: absolute;
+
+  z-index: 32;
+
+  left: 68%;
+
+  bottom: 12%;
+
+  width: 65px;
+  height: 65px;
+
+  padding: 0;
+
+  border: none;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  appearance: none;
+
+  overflow: visible;
+}
+
+
+/* TROPHY */
+
+.trophy-icon {
+  position: absolute;
+
+  left: 19px;
+  top: 24px;
+
+  font-size: 27px;
+
+  filter:
+    saturate(0.55)
+    brightness(0.85);
+}
+
+
+/* GRASS HIDING TROPHY */
+
+.trophy-grass {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 0;
+  top: 30px;
+
+  font-size: 43px;
+
+  transform:
+    rotate(-8deg);
+
+  filter:
+    saturate(0.65)
+    brightness(0.9);
+}
+
+
+/* =====================================================
+   FOUND TROPHY
+===================================================== */
+
+.trophy-found .trophy-icon {
+  filter:
+    saturate(1)
+    brightness(1);
+
+  font-size: 32px;
+}
+
+
+/* =====================================================
+   OBJECT CHECK
+===================================================== */
+
+.object-check {
+  position: absolute;
+
+  z-index: 100;
+
+  right: -5px;
+  top: -5px;
+
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #8da58b;
+
+  color: white;
+
+  font-size: 11px;
+
+  font-weight: bold;
+
+  box-shadow:
+    0 3px 8px
+    rgba(0, 0, 0, 0.15);
+}
+
+
+/* =====================================================
+   COMPLETION OVERLAY
+===================================================== */
+
+.cricket-complete-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 200;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 30px;
+
+  border-radius: 26px;
+
+  background:
+    rgba(
+      250,
+      249,
+      244,
+      0.96
+    );
+
+  backdrop-filter:
+    blur(8px);
+}
+
+
+.cricket-complete-icon {
+  font-size: 55px;
+
+  margin-bottom: 12px;
+}
+
+
+.cricket-complete-overlay h2 {
+  margin: 0 0 10px;
+
+  font-family:
+    Georgia,
+    serif;
+
+  color: #566253;
+
+  font-size: 26px;
+}
+
+
+.cricket-complete-overlay p {
+  margin: 0;
+
+  color: #817b71;
+
+  line-height: 1.7;
+
+  font-size: 14px;
+}
+
+
+/* =====================================================
+   INTERACTION
+===================================================== */
+
+.puzzle-tree:hover,
+.hidden-bat:hover,
+.cricket-player:hover,
+.revealed-cricket-ball:hover,
+.hidden-trophy:hover {
+  background: transparent;
+
+  box-shadow: none;
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .puzzle-tree {
+    left: 2%;
+    top: 29%;
+  }
+
+  .hidden-bat {
+    left: 5%;
+    top: 38%;
+  }
+
+  .cricket-player {
+    right: 25%;
+    bottom: 23%;
+  }
+
+  .revealed-cricket-ball {
+    right: 19%;
+    bottom: 33%;
+  }
+
+  .hidden-trophy {
+    left: 67%;
+    bottom: 12%;
+  }
+
+}
+/* =====================================================
+   PUZZLE 3 — THE FINAL SECRET
+===================================================== */
+
+.puzzle-three-card {
+  max-width: 620px;
+  position: relative;
+}
+
+
+/* =====================================================
+   CLUES
+===================================================== */
+
+.clue-container {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 12px;
+
+  width: 100%;
+
+  max-width: 500px;
+
+  margin:
+    18px auto 20px;
+}
+
+.clue-card {
+  min-height: 125px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 15px 8px;
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.9
+    );
+
+  border-radius: 20px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.55
+    );
+
+  box-shadow:
+    0 8px 25px
+    rgba(
+      90,
+      90,
+      75,
+      0.06
+    );
+
+  backdrop-filter:
+    blur(5px);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.clue-card:hover {
+  transform:
+    translateY(-4px);
+
+  box-shadow:
+    0 12px 28px
+    rgba(
+      90,
+      90,
+      75,
+      0.1
+    );
+}
+
+
+/* =====================================================
+   CLUE ICON
+===================================================== */
+
+.clue-icon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 8px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.7
+    );
+
+  font-size: 27px;
+}
+
+.clue-card p {
+  margin: 0;
+
+  text-align: center;
+
+  font-size: 11px;
+
+  line-height: 1.45;
+
+  color:
+    rgba(
+      80,
+      80,
+      72,
+      0.72
+    );
+}
+
+
+/* =====================================================
+   QUESTION
+===================================================== */
+
+.question-text {
+  margin:
+    8px 0 13px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 16px;
+
+  color:
+    rgba(
+      65,
+      67,
+      60,
+      0.85
+    );
+}
+
+
+/* =====================================================
+   ANSWER FORM
+===================================================== */
+
+.final-answer-form {
+  display: flex;
+
+  width: min(
+    100%,
+    400px
+  );
+
+  margin:
+    0 auto;
+
+  gap: 8px;
+}
+
+.final-answer-form input {
+  flex: 1;
+
+  min-width: 0;
+
+  height: 46px;
+
+  padding:
+    0 15px;
+
+  border:
+    1px solid
+    rgba(
+      150,
+      150,
+      140,
+      0.25
+    );
+
+  border-radius: 14px;
+
+  outline: none;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.7
+    );
+
+  font-family:
+    inherit;
+
+  font-size: 13px;
+
+  color:
+    #5d6258;
+
+  transition:
+    border 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.final-answer-form input::placeholder {
+  color:
+    rgba(
+      100,
+      100,
+      90,
+      0.45
+    );
+}
+
+.final-answer-form input:focus {
+  border-color:
+    rgba(
+      141,
+      165,
+      139,
+      0.65
+    );
+
+  box-shadow:
+    0 0 0 4px
+    rgba(
+      141,
+      165,
+      139,
+      0.1
+    );
+}
+
+
+/* =====================================================
+   UNLOCK BUTTON
+===================================================== */
+
+.final-answer-form button {
+  height: 46px;
+
+  padding:
+    0 18px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background:
+    #8da58b;
+
+  color: white;
+
+  font-size: 10px;
+
+  letter-spacing:
+    1.2px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.final-answer-form button span {
+  margin-left: 5px;
+
+  font-size: 12px;
+}
+
+.final-answer-form button:hover {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 7px 16px
+    rgba(
+      90,
+      110,
+      85,
+      0.18
+    );
+}
+
+.final-answer-form button:active {
+  transform:
+    translateY(0);
+}
+
+
+/* =====================================================
+   WRONG ANSWER
+===================================================== */
+
+.answer-error input {
+  border-color:
+    rgba(
+      185,
+      125,
+      115,
+      0.65
+    );
+}
+
+.wrong-answer {
+  margin:
+    10px 0 0;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+
+  color:
+    #a2766d;
+}
+
+
+/* =====================================================
+   SUCCESS
+===================================================== */
+
+.puzzle-three-success {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 20;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  border-radius: inherit;
+
+  background:
+    rgba(
+      250,
+      248,
+      239,
+      0.96
+    );
+}
+
+.memory-stars {
+  font-size: 48px;
+
+  margin-bottom: 8px;
+}
+
+.puzzle-three-success h2 {
+  margin:
+    0 0 10px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 25px;
+
+  font-weight: 500;
+
+  color:
+    #596356;
+}
+
+.puzzle-three-success p {
+  margin: 0;
+
+  text-align: center;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+
+  color:
+    rgba(
+      75,
+      77,
+      69,
+      0.7
+    );
+}
+
+
+/* =====================================================
+   MEMORY BOX
+===================================================== */
+
+.memory-box {
+  margin:
+    20px 0 12px;
+
+  width: 70px;
+  height: 70px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 20px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.75
+    );
+
+  box-shadow:
+    0 12px 30px
+    rgba(
+      100,
+      90,
+      70,
+      0.1
+    );
+
+  font-size: 36px;
+}
+
+.memory-coming {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 13px !important;
+
+  color:
+    rgba(
+      80,
+      82,
+      73,
+      0.75
+    );
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .clue-container {
+    gap: 7px;
+  }
+
+  .clue-card {
+    min-height: 115px;
+
+    padding:
+      12px 5px;
+  }
+
+  .clue-icon {
+    width: 45px;
+    height: 45px;
+
+    font-size: 24px;
+  }
+
+  .clue-card p {
+    font-size: 10px;
+  }
+
+  .final-answer-form {
+    flex-direction: column;
+  }
+
+  .final-answer-form button {
+    width: 100%;
+  }
+
+}
+/* =====================================================
+   MEMORY STORY
+===================================================== */
+
+.memory-intro,
+.memory-ending {
+  min-height: 620px;
+
+  width: min(
+    100%,
+    650px
+  );
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 45px 25px;
+
+  text-align: center;
+
+  border-radius: 28px;
+
+  background:
+    rgba(
+      250,
+      248,
+      239,
+      0.94
+    );
+
+  box-shadow:
+    0 20px 50px
+    rgba(
+      80,
+      80,
+      70,
+      0.08
+    );
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.memory-gift {
+  width: 90px;
+  height: 90px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 20px;
+
+  border-radius: 26px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.75
+    );
+
+  box-shadow:
+    0 15px 35px
+    rgba(
+      100,
+      90,
+      70,
+      0.1
+    );
+
+  font-size: 48px;
+}
+
+.memory-eyebrow {
+  margin:
+    0 0 14px;
+
+  font-size: 9px;
+
+  letter-spacing:
+    2.2px;
+
+  font-weight: 600;
+
+  color:
+    rgba(
+      110,
+      115,
+      100,
+      0.6
+    );
+}
+
+.memory-intro h1,
+.memory-ending h1 {
+  margin:
+    0 0 15px;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 30px;
+
+  line-height: 1.35;
+
+  font-weight: 400;
+
+  color:
+    #596356;
+}
+
+.memory-intro-text {
+  margin:
+    0 0 28px;
+
+  font-size: 13px;
+
+  color:
+    rgba(
+      75,
+      78,
+      70,
+      0.65
+    );
+}
+
+
+/* =====================================================
+   OPEN BUTTON
+===================================================== */
+
+.open-memory-button,
+.birthday-button {
+  height: 48px;
+
+  padding:
+    0 23px;
+
+  border: none;
+
+  border-radius: 15px;
+
+  background:
+    #8da58b;
+
+  color: white;
+
+  font-size: 10px;
+
+  letter-spacing:
+    1.2px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 20px
+    rgba(
+      90,
+      110,
+      85,
+      0.16
+    );
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.open-memory-button span,
+.birthday-button span {
+  margin-left: 7px;
+
+  font-size: 13px;
+}
+
+.open-memory-button:hover,
+.birthday-button:hover {
+  transform:
+    translateY(-2px);
+
+  box-shadow:
+    0 12px 25px
+    rgba(
+      90,
+      110,
+      85,
+      0.2
+    );
+}
+
+
+/* =====================================================
+   MEMORY STORY
+===================================================== */
+
+.memory-story {
+  width: min(
+    100%,
+    720px
+  );
+
+  min-height: 620px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  padding:
+    22px 22px 18px;
+
+  border-radius: 28px;
+
+  background:
+    rgba(
+      250,
+      248,
+      239,
+      0.94
+    );
+
+  box-shadow:
+    0 20px 50px
+    rgba(
+      80,
+      80,
+      70,
+      0.08
+    );
+}
+
+
+/* =====================================================
+   TOP BAR
+===================================================== */
+
+.memory-top-bar {
+  width: 100%;
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  margin-bottom: 8px;
+
+  padding:
+    0 4px;
+
+  font-size: 9px;
+
+  letter-spacing:
+    1.5px;
+
+  color:
+    rgba(
+      90,
+      95,
+      85,
+      0.55
+    );
+}
+
+
+/* =====================================================
+   PROGRESS
+===================================================== */
+
+.memory-progress {
+  width: 100%;
+
+  height: 3px;
+
+  margin-bottom: 18px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background:
+    rgba(
+      130,
+      145,
+      125,
+      0.12
+    );
+}
+
+.memory-progress-fill {
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    #8da58b;
+}
+
+
+/* =====================================================
+   IMAGE
+===================================================== */
+
+.memory-image-container {
+  position: relative;
+
+  width: 100%;
+
+  height: 490px;
+
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  background:
+    #e9e6dc;
+
+  box-shadow:
+    0 15px 40px
+    rgba(
+      60,
+      60,
+      50,
+      0.12
+    );
+}
+
+.memory-image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: contain;
+
+  background:
+    #e9e6dc;
+}
+
+
+/* =====================================================
+   IMAGE OVERLAY
+===================================================== */
+
+.memory-image-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(
+        0,
+        0,
+        0,
+        0.04
+      ),
+      transparent 30%,
+      transparent 70%,
+      rgba(
+        0,
+        0,
+        0,
+        0.08
+      )
+    );
+}
+
+
+/* =====================================================
+   IMAGE NUMBER
+===================================================== */
+
+.memory-number {
+  position: absolute;
+
+  left: 20px;
+  bottom: 18px;
+
+  padding:
+    7px 11px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.78
+    );
+
+  backdrop-filter:
+    blur(6px);
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 13px;
+
+  color:
+    rgba(
+      70,
+      75,
+      65,
+      0.7
+    );
+}
+
+
+/* =====================================================
+   CONTROLS
+===================================================== */
+
+.memory-controls {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content:
+    space-between;
+
+  gap: 15px;
+
+  margin-top: 16px;
+}
+
+.memory-controls p {
+  flex: 1;
+
+  margin: 0;
+
+  text-align: center;
+
+  font-family:
+    Georgia,
+    serif;
+
+  font-size: 12px;
+
+  color:
+    rgba(
+      80,
+      82,
+      73,
+      0.65
+    );
+}
+
+.memory-nav-button {
+  width: 38px;
+  height: 38px;
+
+  flex-shrink: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      141,
+      165,
+      139,
+      0.12
+    );
+
+  color:
+    #6f806d;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.memory-nav-button:hover:not(:disabled) {
+  background:
+    rgba(
+      141,
+      165,
+      139,
+      0.22
+    );
+
+  transform:
+    scale(1.05);
+}
+
+.memory-nav-button:disabled {
+  opacity: 0.25;
+
+  cursor: default;
+}
+
+.memory-auto-note {
+  margin:
+    10px 0 0;
+
+  font-size: 9px;
+
+  color:
+    rgba(
+      100,
+      100,
+      90,
+      0.45
+    );
+}
+
+
+/* =====================================================
+   ENDING
+===================================================== */
+
+.ending-sparkle {
+  margin-bottom: 12px;
+
+  font-size: 52px;
+}
+
+.ending-message {
+  margin:
+    0 0 25px;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+
+  color:
+    rgba(
+      75,
+      78,
+      70,
+      0.68
+    );
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .memory-intro,
+  .memory-ending {
+    min-height: 550px;
+
+    padding:
+      30px 18px;
+  }
+
+  .memory-story {
+    min-height: 550px;
+
+    padding:
+      16px 12px;
+  }
+
+  .memory-image-container {
+    height: 390px;
+  }
+
+  .memory-intro h1,
+  .memory-ending h1 {
+    font-size: 25px;
+  }
+
+  .memory-controls p {
+    font-size: 11px;
+  }
+
+}
+/* =====================================================
+   CINEMATIC MEMORY STORY
+===================================================== */
+
+.cinematic-intro {
+  position: relative;
+  overflow: hidden;
+}
+
+.music-note {
+  margin-top: 16px;
+
+  font-size: 9px;
+
+  letter-spacing: 0.5px;
+
+  color:
+    rgba(
+      90,
+      95,
+      85,
+      0.45
+    );
+}
+
+
+/* =====================================================
+   CINEMATIC FRAME
+===================================================== */
+
+.cinematic-memory {
+  position: relative;
+}
+
+.cinematic-frame {
+  position: relative;
+
+  width: 100%;
+
+  height: 490px;
+
+  overflow: hidden;
+
+  border-radius: 22px;
+
+  background: #e9e6dc;
+
+  box-shadow:
+    0 20px 50px
+    rgba(
+      45,
+      45,
+      40,
+      0.16
+    );
+}
+
+.cinematic-image {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  background: #e9e6dc;
+}
+
+
+/* =====================================================
+   CINEMATIC ZOOM
+===================================================== */
+
+.cinematic-zoom-in {
+  animation:
+    cinematicZoomIn
+    4.5s
+    ease-out
+    forwards;
+}
+
+.cinematic-zoom-out {
+  animation:
+    cinematicZoomOut
+    4.5s
+    ease-out
+    forwards;
+}
+
+@keyframes cinematicZoomIn {
+
+  from {
+    transform:
+      scale(1);
+  }
+
+  to {
+    transform:
+      scale(1.055);
+  }
+
+}
+
+@keyframes cinematicZoomOut {
+
+  from {
+    transform:
+      scale(1.055);
+  }
+
+  to {
+    transform:
+      scale(1);
+  }
+
+}
+
+
+/* =====================================================
+   VIGNETTE
+===================================================== */
+
+.cinematic-vignette {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 45%,
+      rgba(
+        0,
+        0,
+        0,
+        0.25
+      )
+    );
+}
+
+
+/* =====================================================
+   SUBTLE FILM GRAIN
+===================================================== */
+
+.cinematic-grain {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.035;
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
+
+  mix-blend-mode:
+    overlay;
+}
+
+
+/* =====================================================
+   CAPTION
+===================================================== */
+
+.cinematic-caption {
+  position: absolute;
+
+  left: 8%;
+
+  right: 8%;
+
+  bottom: 30px;
+
+  z-index: 5;
+
+  text-align: center;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 20px;
+
+  line-height: 1.45;
+
+  color: white;
+
+  text-shadow:
+    0 2px 12px
+    rgba(
+      0,
+      0,
+      0,
+      0.65
+    );
+}
+
+
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
+
+.music-control {
+  position: absolute;
+
+  right: 22px;
+
+  top: 68px;
+
+  z-index: 20;
+
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: none;
+
+  border-radius: 50%;
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.75
+    );
+
+  backdrop-filter:
+    blur(8px);
+
+  box-shadow:
+    0 5px 15px
+    rgba(
+      0,
+      0,
+      0,
+      0.08
+    );
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease;
+}
+
+.music-control:hover {
+  transform:
+    scale(1.08);
+}
+
+
+/* =====================================================
+   CINEMATIC ENDING
+===================================================== */
+
+.cinematic-ending {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.cinematic-ending::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(
+        255,
+        255,
+        255,
+        0.7
+      ),
+      transparent 60%
+    );
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .cinematic-frame {
+    height: 390px;
+
+    border-radius: 18px;
+  }
+
+  .cinematic-caption {
+    bottom: 22px;
+
+    font-size: 16px;
+
+    line-height: 1.4;
+  }
+
+  .music-control {
+    top: 57px;
+
+    right: 15px;
+
+    width: 34px;
+    height: 34px;
+  }
+
+}
