@@ -104,6 +104,8 @@ function WelcomeScreen({ onStart }) {
         transition={{ delay: 0.7 }}
       >
         A little birthday surprise
+        <br />
+        For someone truly special
       </motion.p>
 
       <motion.h1
@@ -111,9 +113,9 @@ function WelcomeScreen({ onStart }) {
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.9, duration: 0.8 }}
       >
-        Something beautiful
+        Because today deserves something
         <br />
-        is growing…
+        a little more special…
       </motion.h1>
 
       <motion.p
@@ -315,7 +317,7 @@ function UnlockScreen({ onUnlock }) {
                 delay: 0.35,
               }}
             >
-              You remembered. ❤️
+            Yayy!! And there it is..... ❤️
             </motion.p>
 
           </motion.div>
@@ -357,14 +359,18 @@ function UnlockScreen({ onUnlock }) {
       <p className="description">
         Before you enter this little world,
         <br />
-        there's one secret you need to know. 🌿
+        there's one secret code you need to crack. 🌿
       </p>
 
 
       <p className="unlock-instruction">
-        Enter the little word hidden
+        Hint 1: Look at the dates that brouht us into this world.
+        Hint 2: Let the two beginnings become one.
+        Hint 3: Our names have part to play too.. Take letter from one and then from other and keep taking turns.
         <br />
-        somewhere in your gift.
+        Hint 4: You stand tall and I Stay small.
+        <br />
+        Ping me if you didn't get, don't try multiple it will get locked.
       </p>
 
 
@@ -916,7 +922,7 @@ function PuzzleTwo({ onComplete }) {
             >
               You found all three.
               <br />
-              Looks like you've still
+              I know you've still
               got your cricket instincts. 😉
             </motion.p>
 
@@ -1524,9 +1530,9 @@ function PuzzleThree({ onComplete }) {
           </h1>
 
           <p className="description puzzle-description">
-            Three little clues.
+            Six little pieces.
             <br />
-            One little secret.
+            One little happiness.
           </p>
 
 
@@ -1553,6 +1559,84 @@ function PuzzleThree({ onComplete }) {
               }}
             >
               <div className="clue-icon">
+                🏡❤️
+              </div>
+
+              <p>
+               THE PEOPLE WHO 
+                <br />
+                MAKE IT HOME
+              </p>
+            </motion.div>
+              {/* CLUE 1 */}
+
+            <motion.div
+              className="clue-card"
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                delay: 0.2,
+              }}
+            >
+              <div className="clue-icon">
+                🌾
+              </div>
+
+              <p>
+                WHERE YOUR HANDS 
+                <br />
+                MEET THE EARTH
+              </p>
+            </motion.div>
+            {/* CLUE 1 */}
+
+            <motion.div
+              className="clue-card"
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                delay: 0.2,
+              }}
+            >
+              <div className="clue-icon">
+                👨‍🍳
+              </div>
+
+              <p>
+                HAPPINESS, 
+                <br />
+                SERVED HOT
+              </p>
+            </motion.div>
+            {/* CLUE 1 */}
+
+            <motion.div
+              className="clue-card"
+              initial={{
+                opacity: 0,
+                y: 20,
+              }}
+              animate={{
+                opacity: 1,
+                y: 0,
+              }}
+              transition={{
+                delay: 0.2,
+              }}
+            >
+              <div className="clue-icon">
                 🌟
               </div>
 
@@ -1562,8 +1646,6 @@ function PuzzleThree({ onComplete }) {
                 stays with you.
               </p>
             </motion.div>
-
-
             {/* CLUE 2 */}
 
             <motion.div
@@ -1585,9 +1667,9 @@ function PuzzleThree({ onComplete }) {
               </div>
 
               <p>
-                Something that
+                THE GAME THAT NEVER GROWS OLD
                 <br />
-                brings a smile.
+                Something that brings a smile.
               </p>
             </motion.div>
 
@@ -1615,9 +1697,10 @@ function PuzzleThree({ onComplete }) {
               <p>
                 Something you've
                 <br />
-                worked for.
+                worked for.The goals you chased, the milestones you earned,
               </p>
             </motion.div>
+            
 
           </div>
 
@@ -1695,18 +1778,17 @@ function PuzzleThree({ onComplete }) {
     </motion.section>
   );
 }
-function MemoryStory({ onComplete, memoryUrls, }) {
+function MemoryStory({ onComplete, memoryUrls, startMusic, isMuted, audioRef, }) {
   const [currentImage, setCurrentImage] = useState(0);
   const [started, setStarted] = useState(false);
   const [showEnding, setShowEnding] = useState(false);
-  const [isMuted, setIsMuted] = useState(false);
+  
 
-  const audioRef = useRef(null);
 
   const memories = [
     {
       image: "1.jpg",
-      caption: "Where the story began...",
+      caption: "Where the story began... a memory when you are young",
       duration: 4500,
       effect: "zoom-in",
     },
@@ -1718,7 +1800,7 @@ function MemoryStory({ onComplete, memoryUrls, }) {
     },
     {
       image: "3.jpg",
-      caption: "Those carefree days...",
+      caption: "Those college days...",
       duration: 4000,
       effect: "zoom-in",
     },
@@ -1734,25 +1816,25 @@ function MemoryStory({ onComplete, memoryUrls, }) {
     },
     {
       image: "5.jpg",
-      caption: "And the journey continued...",
+      caption: "Growing, learning and discovering.The chapter where the dream first started taking shape.🌱",
       duration: 4000,
       effect: "zoom-in",
     },
     {
       image: "6.jpg",
-      caption: "Growing, learning and discovering.",
+      caption: "And the journey continued...",
       duration: 4000,
       effect: "zoom-out",
     },
     {
       image: "7.jpg",
-      caption: "Another little chapter.",
+      caption: "Somewhere between the soil and the sky…you found a different kind of happiness.",
       duration: 4000,
       effect: "zoom-in",
     },
     {
       image: "8.jpg",
-      caption: "Some moments simply stay with us.",
+      caption: "Through every high and every uncertain turn… faith quietly walked beside you.",
       duration: 4000,
       effect: "zoom-out",
     },
@@ -1764,67 +1846,67 @@ function MemoryStory({ onComplete, memoryUrls, }) {
     },
     {
       image: "10.jpg",
-      caption: "And then came more adventures.",
+      caption: "When passion became a path. You chose to follow what fascinated you — and dared to see where it would take you.",
       duration: 4000,
       effect: "zoom-out",
     },
     {
       image: "11.jpg",
-      caption: "Growing into the person you were meant to be.",
+      caption: "Runs, wickets, laughter… and a whole lot of happiness.",
       duration: 4000,
       effect: "zoom-in",
     },
     {
       image: "12.jpg",
-      caption: "More memories. More stories.",
+      caption: "Unexpected chapter, Somewhere along the way, two journeys became one.",
       duration: 4000,
       effect: "zoom-out",
     },
     {
       image: "13.jpg",
-      caption: "The people and moments that mattered.",
+      caption: "Where the world fades away and the game takes over.",
       duration: 4000,
       effect: "zoom-in",
     },
     {
       image: "14.jpg",
-      caption: "A chapter filled with smiles.",
+      caption: "Years of learning. Years of persistence. One unforgettable moment.You earned more than a degree — you proved to yourself that you could see it through.",
       duration: 4000,
       effect: "zoom-out",
     },
     {
       image: "15.jpg",
-      caption: "Life was slowly becoming a beautiful story.",
+      caption: "Family that stood with you in thick and thin.",
       duration: 4000,
       effect: "zoom-in",
     },
     {
       image: "16.jpg",
-      caption: "And there was still so much ahead.",
+      caption: "A dream on two wheels, finally yours. 🏍️✨",
       duration: 4000,
       effect: "zoom-out",
     },
     {
       image: "17.jpg",
-      caption: "Friends, laughter and unforgettable days.",
+      caption: "From an idea in your mind to something worth sharing with the world.Your work found a voice.",
       duration: 4000,
       effect: "zoom-in",
     },
     {
       image: "18.jpg",
-      caption: "Some people become part of the story forever.",
+      caption: "Where it all comes back to — family.",
       duration: 4000,
       effect: "zoom-out",
     },
     {
       image: "19.jpg",
-      caption: "The moments that made the journey special.",
+      caption: "One dream led to another door. And suddenly, the journey had a new beginning.",
       duration: 4000,
       effect: "zoom-in",
     },
     {
       image: "20.jpg",
-      caption: "A little more of the person you became.",
+      caption: "Learning, growing",
       duration: 4000,
       effect: "zoom-out",
     },
@@ -1842,19 +1924,19 @@ function MemoryStory({ onComplete, memoryUrls, }) {
     },
     {
       image: "23.jpg",
-      caption: "Every achievement has a story behind it.",
+      caption: "Another chapter. Another step forward.Learning, growing, and slowly becoming the person you were meant to be..",
       duration: 4000,
       effect: "zoom-in",
     },
     {
       image: "24.jpg",
-      caption: "And every story has people who cheer for you.",
+      caption: "A little competition, a lot of excitement, and pure joy.",
       duration: 4000,
       effect: "zoom-out",
     },
     {
       image: "25.jpg",
-      caption: "Another milestone. Another memory.",
+      caption: "A moment of faith, peace, and gratitude. 🕉️✨",
       duration: 4000,
       effect: "zoom-in",
     },
@@ -1866,13 +1948,13 @@ function MemoryStory({ onComplete, memoryUrls, }) {
     },
     {
       image: "27.jpg",
-      caption: "From then to now...",
+      caption: "the IPL, live and loud. 🏏🔥",
       duration: 4000,
       effect: "zoom-in",
     },
     {
       image: "28.jpg",
-      caption: "So many faces. So many moments.",
+      caption: "The keys to another little dream. 🔑🚗",
       duration: 4000,
       effect: "zoom-out",
     },
@@ -1884,19 +1966,19 @@ function MemoryStory({ onComplete, memoryUrls, }) {
     },
     {
       image: "30.jpg",
-      caption: "A life made beautiful by little moments.",
+      caption: "The woman behind so much of the journey. ❤️",
       duration: 4000,
       effect: "zoom-out",
     },
     {
       image: "31.jpg",
-      caption: "Almost at the present...",
+      caption: "At the present...The title changed. The passion didn't.",
       duration: 4000,
       effect: "zoom-in",
     },
     {
       image: "32.jpg",
-      caption: "Look how far you've come. ❤️",
+      caption: "Once a student with dreams. Now standing before students, sharing the journey. 🎓✨ Look how far you've come. ❤️",
       duration: 5500,
       effect: "zoom-out",
     },
@@ -1907,17 +1989,31 @@ function MemoryStory({ onComplete, memoryUrls, }) {
   /*
    * Start music
    */
-  const startJourney = () => {
+  const startJourney = async () => {
     setStarted(true);
 
-    if (audioRef.current) {
-      audioRef.current.volume = 0.35;
+    const audio = audioRef.current;
 
-      audioRef.current
-        .play()
-        .catch(() => {
-          console.log("Audio playback requires user interaction.");
-        });
+    if (!audio) {
+      console.error("🎵 Audio element does not exist");
+      return;
+    }
+
+    try {
+      audio.volume = 0.35;
+
+      console.log("🎵 Audio src:", audio.currentSrc);
+      console.log("🎵 Audio readyState:", audio.readyState);
+      console.log("🎵 Audio networkState:", audio.networkState);
+
+      await audio.play();
+
+      console.log("🎵 MUSIC PLAYING");
+    } catch (error) {
+      console.error("🎵 MUSIC FAILED:", error);
+      console.error("🎵 error name:", error?.name);
+      console.error("🎵 error message:", error?.message);
+      console.error("🎵 media error:", audio.error);
     }
   };
 
@@ -1987,12 +2083,6 @@ function MemoryStory({ onComplete, memoryUrls, }) {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
-        <audio
-          ref={audioRef}
-          src="/music/birthday.mp3"
-          loop
-          preload="auto"
-        />
 
         <motion.div
           className="memory-gift"
@@ -2172,11 +2262,7 @@ function MemoryStory({ onComplete, memoryUrls, }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
     >
-      <audio
-        ref={audioRef}
-        src="/music/birthday.mp3"
-        loop
-      />
+      
 
       <div className="memory-top-bar">
         <span>
@@ -2308,12 +2394,476 @@ function MemoryStory({ onComplete, memoryUrls, }) {
     </motion.section>
   );
 }
+function BirthdayWish() {
+  const confetti = Array.from({ length: 28 }, (_, index) => ({
+    id: index,
+    left: `${10 + Math.random() * 80}%`,
+    delay: `${Math.random() * 1.8}s`,
+    duration: `${2.5 + Math.random() * 2}s`,
+    rotate: `${Math.random() * 360}deg`,
+  }));
+
+  return (
+    <motion.section
+      className="birthday-screen"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 1 }}
+    >
+
+      {/* =================================================
+          SOFT BACKGROUND DECORATION
+      ================================================= */}
+
+      <div className="birthday-flower birthday-flower-one">
+        🌸
+      </div>
+
+      <div className="birthday-flower birthday-flower-two">
+        🌸
+      </div>
+
+      <div className="birthday-heart heart-one">
+        ♡
+      </div>
+
+      <div className="birthday-heart heart-two">
+        ♡
+      </div>
+
+      <div className="birthday-sparkle sparkle-one">
+        ✦
+      </div>
+
+      <div className="birthday-sparkle sparkle-two">
+        ✦
+      </div>
+
+
+      {/* =================================================
+          MAIN CARD
+      ================================================= */}
+
+      <motion.div
+        className="birthday-card"
+        initial={{
+          opacity: 0,
+          y: 35,
+          scale: 0.97,
+        }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          scale: 1,
+        }}
+        transition={{
+          duration: 1,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+      >
+
+        {/* =================================================
+            TOP
+        ================================================= */}
+
+        <motion.p
+          className="birthday-eyebrow"
+          initial={{
+            opacity: 0,
+            y: -10,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            delay: 0.4,
+          }}
+        >
+          A LITTLE WISH FOR YOU ✨
+        </motion.p>
+
+
+        <motion.h1
+          className="birthday-title"
+          initial={{
+            opacity: 0,
+            y: 15,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            delay: 0.6,
+            duration: 0.9,
+          }}
+        >
+          Happy
+          <br />
+          <span>Birthday!</span>
+        </motion.h1>
+
+
+        {/* =================================================
+            CUTE CHARACTERS
+        ================================================= */}
+
+        <motion.div
+          className="birthday-characters"
+          initial={{
+            opacity: 0,
+            scale: 0.85,
+          }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+          }}
+          transition={{
+            delay: 0.9,
+            duration: 0.8,
+          }}
+        >
+
+          <motion.div
+            className="birthday-character bear"
+            animate={{
+              y: [0, -7, 0],
+              rotate: [-2, 2, -2],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          >
+            🧸
+          </motion.div>
+
+
+          <motion.div
+            className="birthday-character bunny"
+            animate={{
+              y: [0, -6, 0],
+              rotate: [2, -2, 2],
+            }}
+            transition={{
+              duration: 3.2,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 0.3,
+            }}
+          >
+            🐰
+          </motion.div>
+
+
+          <motion.span
+            className="character-heart"
+            animate={{
+              y: [0, -8, 0],
+              opacity: [0.6, 1, 0.6],
+              scale: [0.9, 1.1, 0.9],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+            }}
+          >
+            ❤️
+          </motion.span>
+
+        </motion.div>
+
+
+        {/* =================================================
+            MESSAGE
+        ================================================= */}
+
+        <motion.div
+          className="birthday-message"
+          initial={{
+            opacity: 0,
+            y: 15,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            delay: 1.2,
+            duration: 0.9,
+          }}
+        >
+
+          <p className="birthday-opening">
+            Wish you many more happy returns
+            <br />
+            of the <span>Day...</span> ❤️
+          </p>
+
+
+          <p>
+            You have come so far, achieved so many
+            <br />
+            milestones, and there's still so much more
+            <br />
+            waiting for you!
+          </p>
+
+
+          <p>
+            May you continue to reach heights,
+            <br />
+            achieve all your dreams and make
+            <br />
+            every year more <strong>amazing</strong>
+            <br />
+            than the last.
+          </p>
+
+
+          <motion.p
+            className="growing-together"
+            animate={{
+              scale: [1, 1.03, 1],
+            }}
+            transition={{
+              duration: 2.5,
+              repeat: Infinity,
+            }}
+          >
+            #growing together ❤️
+          </motion.p>
+
+        </motion.div>
+
+
+        {/* =================================================
+            LIFE SYMBOLS
+        ================================================= */}
+
+        <motion.div
+          className="birthday-symbols"
+          initial={{
+            opacity: 0,
+            y: 15,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            delay: 1.6,
+          }}
+        >
+
+          <div className="birthday-symbol">
+            <span>🏠</span>
+            <small>Home</small>
+          </div>
+
+          <div className="birthday-symbol">
+            <span>💍</span>
+            <small>Love</small>
+          </div>
+
+          <div className="birthday-symbol">
+            <span>✈️</span>
+            <small>Travel</small>
+          </div>
+
+          <div className="birthday-symbol">
+            <span>👨‍👩‍👧</span>
+            <small>Family</small>
+          </div>
+
+          <div className="birthday-symbol">
+            <span>😊</span>
+            <small>Happiness</small>
+          </div>
+
+        </motion.div>
+
+
+        {/* =================================================
+            GIFT EXPLOSION
+        ================================================= */}
+
+        <div className="birthday-gift-area">
+
+          {/* Confetti */}
+
+          <div className="birthday-confetti">
+            {confetti.map((piece) => (
+              <motion.span
+                key={piece.id}
+                className="confetti-piece"
+                style={{
+                  left: piece.left,
+                  animationDelay: piece.delay,
+                  animationDuration: piece.duration,
+                  transform: `rotate(${piece.rotate})`,
+                }}
+              >
+                {piece.id % 3 === 0
+                  ? "♥"
+                  : piece.id % 3 === 1
+                  ? "✦"
+                  : "◆"}
+              </motion.span>
+            ))}
+          </div>
+
+
+          {/* Burst */}
+
+          <motion.div
+            className="gift-burst"
+            initial={{
+              scale: 0,
+              opacity: 0,
+            }}
+            animate={{
+              scale: [0, 1.4, 1],
+              opacity: [0, 1, 0.85],
+            }}
+            transition={{
+              delay: 2,
+              duration: 1.3,
+            }}
+          >
+            ✨
+          </motion.div>
+
+
+          {/* Gift lid */}
+
+          <motion.div
+            className="gift-lid"
+            initial={{
+              y: 0,
+              rotate: 0,
+            }}
+            animate={{
+              y: -70,
+              rotate: -12,
+            }}
+            transition={{
+              delay: 2.1,
+              duration: 0.8,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
+            <div className="gift-ribbon-horizontal" />
+            <div className="gift-lid-ribbon" />
+          </motion.div>
+
+
+          {/* Gift box */}
+
+          <motion.div
+            className="gift-box"
+            initial={{
+              scale: 0.8,
+              opacity: 0,
+            }}
+            animate={{
+              scale: [0.8, 1.08, 1],
+              opacity: 1,
+            }}
+            transition={{
+              delay: 1.8,
+              duration: 0.8,
+            }}
+          >
+
+            <div className="gift-ribbon" />
+
+            <div className="gift-glow">
+              ✨
+            </div>
+
+          </motion.div>
+
+        </div>
+
+
+        {/* =================================================
+            FINAL MESSAGE
+        ================================================= */}
+
+        <motion.p
+          className="birthday-final-line"
+          initial={{
+            opacity: 0,
+          }}
+          animate={{
+            opacity: 1,
+          }}
+          transition={{
+            delay: 3,
+          }}
+        >
+          Here's to many more beautiful chapters together. ❤️
+        </motion.p>
+
+      </motion.div>
+
+    </motion.section>
+  );
+}
 function App() {
   const [screen, setScreen] = useState("welcome");
   const [memoryUrls, setMemoryUrls] = useState({});
 
+  const audioRef = useRef(null);
+  const [isMuted, setIsMuted] = useState(false);
+
+  const startMusic = async () => {
+    const audio = audioRef.current;
+
+    if (!audio) {
+      console.error("🎵 Audio element not found");
+      return;
+    }
+
+    try {
+      audio.volume = 0.35;
+
+      await audio.play();
+
+      console.log("🎵 Music started successfully");
+    } catch (error) {
+      console.error("🎵 Music failed to play:", error);
+    }
+  };
+
+  const toggleMute = () => {
+    const audio = audioRef.current;
+
+    if (!audio) return;
+
+    if (isMuted) {
+      audio.volume = 0.35;
+      setIsMuted(false);
+    } else {
+      audio.volume = 0;
+      setIsMuted(true);
+    }
+  };
+
   return (
     <main className="app">
+
+      <audio
+        ref={audioRef}
+        src={`${import.meta.env.BASE_URL}music/birthday.mp3`}
+        loop
+        preload="auto"
+      />
+
       <Petals />
       <Sparkles />
 
@@ -2321,6 +2871,7 @@ function App() {
       <div className="glow glow-two" />
 
       <AnimatePresence mode="wait">
+
         {screen === "welcome" && (
           <WelcomeScreen
             key="welcome"
@@ -2365,20 +2916,31 @@ function App() {
             onComplete={() => setScreen("memory")}
           />
         )}
-        {screen === "memory" && (
-          <MemoryStory
-            key="memory"
-            memoryUrls={memoryUrls}
-            onComplete={() => setScreen("birthday")}
-          />
+       {screen === "memory" && (
+        <MemoryStory
+          key="memory"
+          memoryUrls={memoryUrls}
+          onComplete={() => setScreen("birthday")}
+          startMusic={startMusic}
+          isMuted={isMuted}
+          toggleMute={toggleMute}
+          audioRef={audioRef}
+        />
+      )}
+        {screen === "birthday" && (
+          <BirthdayWish key="birthday" />
         )}
+
       </AnimatePresence>
 
-      <div className="bottom-decoration" aria-hidden="true">
+      <div
+        className="bottom-decoration"
+        aria-hidden="true"
+      >
         🌿　🌱　🌿
       </div>
+
     </main>
   );
 }
-
 export default App;

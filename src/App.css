@@ -428,7 +428,7 @@ h1 {
 .unlock-instruction {
   margin: -5px 0 22px;
 
-  font-size: 14px;
+  font-size: 10px;
 
   line-height: 1.7;
 
@@ -3544,4 +3544,790 @@ h1 {
     height: 34px;
   }
 
+}
+
+/* =====================================================
+   FINAL BIRTHDAY SCREEN
+===================================================== */
+
+.birthday-screen {
+  min-height: 100vh;
+
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 40px 20px;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(255, 255, 255, 0.95),
+      transparent 45%
+    ),
+    linear-gradient(
+      135deg,
+      #fffaf5 0%,
+      #fff2ef 48%,
+      #f9eee9 100%
+    );
+}
+
+
+/* =====================================================
+   MAIN CARD
+===================================================== */
+
+.birthday-card {
+  width: min(100%, 760px);
+
+  position: relative;
+
+  overflow: hidden;
+
+  text-align: center;
+
+  padding: 50px 42px 38px;
+
+  border-radius: 36px;
+
+  border: 1px solid
+    rgba(255, 255, 255, 0.9);
+
+  background:
+    rgba(255, 252, 248, 0.82);
+
+  box-shadow:
+    0 30px 80px
+    rgba(120, 91, 78, 0.13);
+
+  backdrop-filter:
+    blur(14px);
+
+  z-index: 5;
+}
+
+
+/* =====================================================
+   BACKGROUND DECORATION
+===================================================== */
+
+.birthday-flower {
+  position: absolute;
+
+  font-size: 55px;
+
+  opacity: 0.35;
+
+  pointer-events: none;
+
+  animation:
+    birthday-float 5s ease-in-out infinite;
+}
+
+.birthday-flower-one {
+  left: 5%;
+  top: 8%;
+}
+
+.birthday-flower-two {
+  right: 5%;
+  bottom: 8%;
+
+  animation-delay: 1.5s;
+}
+
+.birthday-heart {
+  position: absolute;
+
+  font-size: 42px;
+
+  color: #e79b9d;
+
+  opacity: 0.3;
+
+  animation:
+    birthday-heart-float 4s ease-in-out infinite;
+}
+
+.heart-one {
+  left: 7%;
+  top: 40%;
+}
+
+.heart-two {
+  right: 8%;
+  top: 55%;
+
+  animation-delay: 1.2s;
+}
+
+.birthday-sparkle {
+  position: absolute;
+
+  color: #d3a25d;
+
+  font-size: 30px;
+
+  opacity: 0.5;
+
+  animation:
+    birthday-twinkle 2.5s ease-in-out infinite;
+}
+
+.sparkle-one {
+  left: 13%;
+  top: 20%;
+}
+
+.sparkle-two {
+  right: 13%;
+  top: 24%;
+
+  animation-delay: 0.8s;
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.birthday-eyebrow {
+  margin: 0 0 8px;
+
+  font-size: 11px;
+
+  letter-spacing: 3px;
+
+  font-weight: 600;
+
+  color: #a18e82;
+}
+
+
+.birthday-title {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(48px, 8vw, 76px);
+
+  line-height: 0.92;
+
+  font-weight: 500;
+
+  color: #68452f;
+}
+
+.birthday-title span {
+  color: #e77f88;
+
+  font-style: italic;
+}
+
+
+/* =====================================================
+   CUTE CHARACTERS
+===================================================== */
+
+.birthday-characters {
+  height: 125px;
+
+  margin: 20px auto 8px;
+
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: center;
+
+  position: relative;
+}
+
+
+.birthday-character {
+  font-size: 95px;
+
+  line-height: 1;
+
+  filter:
+    drop-shadow(
+      0 8px 8px
+      rgba(90, 60, 50, 0.12)
+    );
+}
+
+.birthday-character.bear {
+  margin-right: -18px;
+}
+
+
+.birthday-character.bunny {
+  margin-left: -18px;
+}
+
+
+.character-heart {
+  position: absolute;
+
+  top: 0;
+
+  font-size: 25px;
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.birthday-message {
+  color: #765f53;
+
+  font-size: 15px;
+
+  line-height: 1.7;
+}
+
+
+.birthday-message p {
+  margin: 13px 0;
+}
+
+
+.birthday-opening {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 21px;
+
+  line-height: 1.45;
+
+  color: #6c4a3a;
+}
+
+
+.birthday-opening span {
+  color: #e47f86;
+}
+
+
+.birthday-message strong {
+  color: #e47f86;
+
+  font-weight: 600;
+}
+
+
+.growing-together {
+  margin-top: 18px !important;
+
+  font-size: 18px;
+
+  color: #e47f86;
+
+  font-weight: 600;
+
+  letter-spacing: 0.3px;
+}
+
+
+/* =====================================================
+   LIFE SYMBOLS
+===================================================== */
+
+.birthday-symbols {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 14px;
+
+  margin: 25px auto 20px;
+
+  flex-wrap: wrap;
+}
+
+
+.birthday-symbol {
+  width: 78px;
+  height: 78px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.72);
+
+  border: 1px solid
+    rgba(224, 195, 180, 0.45);
+
+  box-shadow:
+    0 8px 22px
+    rgba(120, 90, 70, 0.07);
+
+  transition:
+    transform 0.25s ease;
+}
+
+
+.birthday-symbol:hover {
+  transform:
+    translateY(-5px)
+    scale(1.04);
+}
+
+
+.birthday-symbol span {
+  font-size: 27px;
+
+  line-height: 1;
+}
+
+
+.birthday-symbol small {
+  margin-top: 5px;
+
+  font-size: 8px;
+
+  color: #9b8174;
+
+  letter-spacing: 0.4px;
+}
+
+
+/* =====================================================
+   GIFT AREA
+===================================================== */
+
+.birthday-gift-area {
+  width: 250px;
+
+  height: 210px;
+
+  position: relative;
+
+  margin: 10px auto 0;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: flex-end;
+}
+
+
+/* =====================================================
+   GIFT BOX
+===================================================== */
+
+.gift-box {
+  position: absolute;
+
+  bottom: 10px;
+
+  width: 145px;
+  height: 92px;
+
+  border-radius: 5px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f08d96,
+      #e86f7a
+    );
+
+  box-shadow:
+    0 15px 25px
+    rgba(170, 80, 80, 0.2);
+}
+
+
+.gift-box::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  bottom: 0;
+
+  height: 12px;
+
+  background:
+    rgba(255, 255, 255, 0.08);
+}
+
+
+.gift-ribbon {
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  left: 50%;
+
+  width: 22px;
+
+  transform:
+    translateX(-50%);
+
+  background: #eac36e;
+}
+
+
+/* =====================================================
+   GIFT LID
+===================================================== */
+
+.gift-lid {
+  position: absolute;
+
+  z-index: 8;
+
+  bottom: 91px;
+
+  width: 165px;
+  height: 28px;
+
+  border-radius: 5px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f49aa1,
+      #eb737e
+    );
+
+  box-shadow:
+    0 8px 15px
+    rgba(150, 70, 70, 0.15);
+}
+
+
+.gift-ribbon-horizontal {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+
+  top: 6px;
+
+  height: 15px;
+
+  background: #eac36e;
+}
+
+
+.gift-lid-ribbon {
+  position: absolute;
+
+  left: 50%;
+
+  top: -22px;
+
+  width: 22px;
+  height: 48px;
+
+  transform:
+    translateX(-50%);
+
+  background: #eac36e;
+}
+
+
+/* =====================================================
+   GIFT GLOW
+===================================================== */
+
+.gift-glow {
+  position: absolute;
+
+  left: 50%;
+  top: -55px;
+
+  transform:
+    translateX(-50%);
+
+  font-size: 40px;
+
+  filter:
+    drop-shadow(
+      0 0 15px
+      rgba(255, 213, 110, 0.8)
+    );
+
+  animation:
+    gift-glow 1.5s ease-in-out infinite;
+}
+
+
+.gift-burst {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 50%;
+  top: 25px;
+
+  transform:
+    translateX(-50%);
+
+  font-size: 80px;
+
+  color: #f1c96a;
+
+  filter:
+    drop-shadow(
+      0 0 18px
+      rgba(255, 207, 96, 0.8)
+    );
+}
+
+
+/* =====================================================
+   CONFETTI
+===================================================== */
+
+.birthday-confetti {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  overflow: hidden;
+}
+
+
+.confetti-piece {
+  position: absolute;
+
+  bottom: 65px;
+
+  font-size: 16px;
+
+  color: #e98b91;
+
+  animation:
+    confetti-rise
+    3.5s
+    ease-out
+    infinite;
+}
+
+
+.confetti-piece:nth-child(3n) {
+  color: #d8ad61;
+}
+
+.confetti-piece:nth-child(3n + 1) {
+  color: #e77f88;
+}
+
+.confetti-piece:nth-child(3n + 2) {
+  color: #cfae9d;
+}
+
+
+/* =====================================================
+   FINAL MESSAGE
+===================================================== */
+
+.birthday-final-line {
+  margin: 0;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 14px;
+
+  color: #95766a;
+
+  font-style: italic;
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes birthday-float {
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      rotate(-3deg);
+  }
+
+  50% {
+    transform:
+      translateY(-12px)
+      rotate(3deg);
+  }
+}
+
+
+@keyframes birthday-heart-float {
+  0%,
+  100% {
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+  50% {
+    transform:
+      translateY(-12px)
+      scale(1.1);
+  }
+}
+
+
+@keyframes birthday-twinkle {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(0.8);
+  }
+
+  50% {
+    opacity: 0.9;
+    transform: scale(1.25);
+  }
+}
+
+
+@keyframes gift-glow {
+  0%,
+  100% {
+    transform:
+      translateX(-50%)
+      scale(0.9);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform:
+      translateX(-50%)
+      scale(1.2);
+    opacity: 1;
+  }
+}
+
+
+@keyframes confetti-rise {
+  0% {
+    transform:
+      translateY(20px)
+      rotate(0deg)
+      scale(0.7);
+
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translateY(-170px)
+      rotate(260deg)
+      scale(1);
+
+    opacity: 0;
+  }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+  .birthday-screen {
+    padding: 20px 10px;
+  }
+
+  .birthday-card {
+    padding:
+      35px
+      18px
+      25px;
+
+    border-radius: 28px;
+  }
+
+  .birthday-title {
+    font-size: 52px;
+  }
+
+  .birthday-characters {
+    height: 105px;
+  }
+
+  .birthday-character {
+    font-size: 78px;
+  }
+
+  .birthday-message {
+    font-size: 13px;
+  }
+
+  .birthday-opening {
+    font-size: 18px;
+  }
+
+  .birthday-symbols {
+    gap: 7px;
+  }
+
+  .birthday-symbol {
+    width: 60px;
+    height: 60px;
+  }
+
+  .birthday-symbol span {
+    font-size: 21px;
+  }
+
+  .birthday-symbol small {
+    font-size: 7px;
+  }
+
+  .birthday-gift-area {
+    transform:
+      scale(0.82);
+
+    margin-top: -2px;
+    margin-bottom: -15px;
+  }
+
+  .birthday-final-line {
+    font-size: 12px;
+  }
 }

@@ -1,29 +1,41 @@
 export const puzzle1 = {
-  title: "A little memory is hiding here…",
+  title: "A little look Back…",
 
   description:
-    "Three little memories. One of them is the one I'm thinking of. ❤️",
+    "You have lived quite a story so far....If you have to choose one chapter that hold the strongest memory in your heart❤️",
 
   options: [
     {
       id: "A",
-      title: "The first little moment",
-      text: "Replace this with a special memory you both share.",
+      title: "The childhood joyful kid",
+      text: "Those childhood days when life was simple,joy came easily, and you had no worries.",
       correct: false,
     },
     {
       id: "B",
-      title: "The one I remember",
-      text: "Replace this with the correct personal memory.",
-      correct: true,
+      title: "The Dreamer",
+      text: "The studies, the dreams, the struggles,and the person you were becoming.",
+      correct: false,
     },
     {
       id: "C",
-      title: "Another little story",
-      text: "Replace this with another memory.",
+      title: "The People Who Made You",
+      text: "Family, friends, mentors the love, the laughter, and all the little moments that shaped you.",
       correct: false,
+    },
+    {
+      id: "D",
+      title: "The Lessons",
+      text: "The mistakes, the setbacks, Failures and everything they taught you.",
+      correct: false,
+    },
+    {
+      id: "E",
+      title: "That One Person - ME",
+      text: "The unexpected chapter…the memories that somehow became a little more special. 😉",
+      correct: true,
     },
   ],
 
-  hint: "Think about one of those moments you could never forget… 🌱",
+  hint: "Which one would you cherish the most? 🌱",
 };
